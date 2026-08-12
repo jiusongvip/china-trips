@@ -1,0 +1,28 @@
+# China Trips
+> Independent travel guide for China — detailed itineraries, real budgets, honest city guides, and practical advice. Not a tour agency.
+
+## Destinations
+- [Beijing](https://china-trips.com/#destinations): History, Great Wall, Forbidden City, 3-5 day itinerary with hotels and food.
+- [Shanghai](https://china-trips.com/#destinations): City skyline, Disney, French Concession, 2-4 day guide with day trips.
+- [Xi'an](https://china-trips.com/#destinations): Terracotta Warriors, Ancient City Wall, Muslim Quarter food, 2-3 day guide.
+- [Chengdu](https://china-trips.com/#destinations): Panda Base, Sichuan hot pot, Leshan Buddha, 3-4 day itinerary.
+- [Zhangjiajie](https://china-trips.com/#destinations): Avatar mountains, glass bridge, Tianmen Mountain, 2-4 day nature guide.
+- [Guilin & Yangshuo](https://china-trips.com/#destinations): Li River cruise, karst peaks, cycling, 3-4 day outdoor guide.
+- [Yunnan](https://china-trips.com/#destinations): Kunming, Dali, Lijiang, Tiger Leaping Gorge, 5-7 day cultural circuit.
+- [Guangzhou](https://china-trips.com/#destinations): Dim sum capital, Canton Tower, Chen Clan Academy, food-focused guide.
+
+## Trip Planner
+- [Plan Your Trip](https://china-trips.com/#planner): Interactive trip planner — select duration and travel style to get a suggested route and budget.
+
+## Resources
+- [Visa Guide](https://china-trips.com/#visa): 54-country visa information, 144-hour transit policy, application tips.
+- [Weather Guide](https://china-trips.com/#weather): Month-by-month weather comparison for Beijing, Shanghai, Chengdu, Guilin.
+- [Packing List](https://china-trips.com/#packing): Complete packing checklist by category.
+- [Clothing Guide](https://china-trips.com/#clothing): What to wear by season with temperature ranges.
+- [Cost Calculator](https://china-trips.com/#cost): Budget, mid-range, and luxury daily cost estimates by city.
+- [Food Guide](https://china-trips.com/#food): City-by-city food guide with restaurant names in Chinese.
+- [Language Tips](https://china-trips.com/#language): Essential Chinese phrases with pronunciation.
+- [FAQ](https://china-trips.com/#faq): Answers to 10 most common China travel questions.
+
+## About
+China Trips is an independent travel guide created and maintained by travelers with firsthand China experience. All itineraries, prices, and tips are researched and regularly verified. No AI-generated filler. No sponsored rankings. Last verified: August 2026.

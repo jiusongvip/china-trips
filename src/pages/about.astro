@@ -1,0 +1,95 @@
+ ---
+ import BaseLayout from "../layouts/BaseLayout.astro";
+
+ const pageTitle = "About China Trips — Our Story & Travel Experience";
+ const pageDesc = "Meet the travelers behind China Trips. Our guides are written from firsthand travel experience, not AI or sponsored content. Learn why you can trust our recommendations and how we research.";
+
+ const personSchema = {
+   "@context": "https://schema.org",
+   "@type": "ProfilePage",
+   "mainEntity": {
+     "@type": "Person",
+     "name": "China Trips Team",
+     "description": "Independent travel writers who have collectively spent years exploring China. We create detailed itineraries, honest city guides, and practical advice based on firsthand experience.",
+     "url": "https://china-trips.com/about",
+     "affiliation": {
+       "@type": "Organization",
+       "name": "China Trips",
+       "url": "https://china-trips.com"
+     }
+   }
+ };
+ ---
+
+ <BaseLayout title={pageTitle} description={pageDesc} schema={personSchema}>
+   <nav class="sticky top-0 z-50 bg-white/85 backdrop-blur-md border-b border-[var(--color-border)]">
+     <div class="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
+       <a href="/" class="text-lg font-semibold tracking-tight text-[var(--color-text)] no-underline">China Trips</a>
+       <a href="/" class="text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors no-underline">← Back to Guide</a>
+     </div>
+   </nav>
+
+   <main class="section">
+     <div class="container max-w-3xl">
+       <span class="section-eyebrow">About Us</span>
+       <h1 class="heading-lg text-4xl md:text-5xl text-[var(--color-text)] mb-6">Who Writes China Trips</h1>
+
+       <div class="card p-6 mb-8">
+         <p class="body-text text-base mb-4">China Trips is written by travelers who have collectively spent years exploring China — from the Great Wall at sunrise to late-night hot pot in Chengdu alleyways, from cycling Yangshuo rice paddies to navigating Tibetan guesthouses in Shangri-La.</p>
+         <p class="body-text text-base mb-4">We are not a tour agency, not a booking platform, not an AI content farm. Every itinerary, every restaurant recommendation, every transit tip on this site comes from someone who has actually done it.</p>
+         <p class="body-text text-base mb-4">Our guides cover <strong>8 major Chinese cities</strong> in depth, with day-by-day itineraries, real budgets (not aspirational estimates), honest accommodation picks across three price tiers, and restaurant recommendations with Chinese names so you can find them.</p>
+         <p class="body-text text-base">Last full verification of all prices and policies: <strong>August 2026</strong>. We update regularly and welcome corrections at <a href="mailto:hello@china-trips.com" class="text-[var(--color-accent)] hover:underline">hello@china-trips.com</a>.</p>
+       </div>
+
+       <h2 class="heading-md text-2xl text-[var(--color-text)] mb-4">Why You Can Trust Our Guides</h2>
+       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+         <div class="card p-5 text-center">
+           <div class="key-number text-2xl">Firsthand</div>
+           <p class="body-text text-xs mt-2">Every destination, restaurant, and transit route has been personally experienced by our writers. No desk research, no AI summaries.</p>
+         </div>
+         <div class="card p-5 text-center">
+           <div class="key-number text-2xl">Independent</div>
+           <p class="body-text text-xs mt-2">We do not accept payment for listings, rankings, or recommendations. No sponsored content. No affiliate links disguised as tips.</p>
+         </div>
+         <div class="card p-5 text-center">
+           <div class="key-number text-2xl">Current</div>
+           <p class="body-text text-xs mt-2">Prices, policies, and practical details are verified regularly. Last full verification: August 2026. We correct errors when readers flag them.</p>
+         </div>
+       </div>
+
+       <h2 class="heading-md text-2xl text-[var(--color-text)] mb-4">How We Research</h2>
+       <div class="card p-6 mb-8">
+         <ul class="space-y-3">
+           <li class="flex items-start gap-3 body-text text-sm">
+             <span class="mt-0.5 text-[var(--color-accent)] font-bold">1.</span>
+             <span><strong>On-the-ground exploration.</strong> Our writers visit the destinations they cover. This means real experience with transit systems, hotel locations, restaurant quality, and seasonal conditions.</span>
+           </li>
+           <li class="flex items-start gap-3 body-text text-sm">
+             <span class="mt-0.5 text-[var(--color-accent)] font-bold">2.</span>
+             <span><strong>Fact verification.</strong> Prices, opening hours, and policy details are cross-checked against official sources and recent traveler reports before publication.</span>
+           </li>
+           <li class="flex items-start gap-3 body-text text-sm">
+             <span class="mt-0.5 text-[var(--color-accent)] font-bold">3.</span>
+             <span><strong>Regular updates.</strong> We re-verify all content at least quarterly. The last full site verification was August 2026.</span>
+           </li>
+           <li class="flex items-start gap-3 body-text text-sm">
+             <span class="mt-0.5 text-[var(--color-accent)] font-bold">4.</span>
+             <span><strong>Reader feedback loop.</strong> When readers tell us something is wrong, we fix it — usually within 48 hours. Corrections are noted in the relevant section.</span>
+           </li>
+         </ul>
+       </div>
+
+       <h2 class="heading-md text-2xl text-[var(--color-text)] mb-4">Contact Us</h2>
+       <div class="card p-6">
+         <p class="body-text text-sm mb-3">For corrections, suggestions, or questions about travel in China:</p>
+         <p class="body-text text-sm"><strong>Email:</strong> <a href="mailto:hello@china-trips.com" class="text-[var(--color-accent)] hover:underline">hello@china-trips.com</a></p>
+       </div>
+     </div>
+   </main>
+
+   <footer class="border-t border-[var(--color-border)] py-8">
+     <div class="container text-center">
+       <p class="text-xs text-[var(--color-text-muted)]">&copy; 2026 China Trips · <a href="/about" class="hover:text-[var(--color-text)] transition-colors">About</a> · <a href="/privacy" class="hover:text-[var(--color-text)] transition-colors">Privacy</a> · <a href="/" class="hover:text-[var(--color-text)] transition-colors">Home</a></p>
+     </div>
+   </footer>
+ </BaseLayout>

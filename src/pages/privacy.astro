@@ -1,0 +1,61 @@
+ ---
+ import BaseLayout from "../layouts/BaseLayout.astro";
+
+ const pageTitle = "Privacy Policy — China Trips Travel Guide";
+ const pageDesc = "Privacy policy for China Trips travel guide. No third-party tracking, no analytics cookies, no advertising pixels. We do not collect or share any visitor data. Simple and transparent.";
+ ---
+
+ <BaseLayout title={pageTitle} description={pageDesc}>
+   <nav class="sticky top-0 z-50 bg-white/85 backdrop-blur-md border-b border-[var(--color-border)]">
+     <div class="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
+       <a href="/" class="text-lg font-semibold tracking-tight text-[var(--color-text)] no-underline">China Trips</a>
+       <a href="/" class="text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors no-underline">← Back to Guide</a>
+     </div>
+   </nav>
+
+   <main class="section">
+     <div class="container max-w-3xl">
+       <span class="section-eyebrow">Legal</span>
+       <h1 class="heading-lg text-4xl md:text-5xl text-[var(--color-text)] mb-6">Privacy Policy</h1>
+       <p class="body-text text-sm mb-6">Last updated: August 12, 2026</p>
+
+       <div class="card p-6 space-y-5">
+         <div>
+           <h2 class="heading-md text-lg text-[var(--color-text)] mb-2">What We Collect</h2>
+           <p class="body-text text-sm">The Trip Planner form on our homepage asks for your trip duration and travel style. These are <strong>not stored on any server</strong> — they are processed entirely in your browser to generate personalized trip suggestions. We do not collect names, email addresses, or personal identifiers through this tool.</p>
+         </div>
+
+         <div>
+           <h2 class="heading-md text-lg text-[var(--color-text)] mb-2">Cookies & Tracking</h2>
+           <p class="body-text text-sm">We do <strong>not</strong> use third-party tracking cookies, analytics scripts, or advertising pixels. No Google Analytics. No Facebook Pixel. No retargeting. Your visit to China Trips is private.</p>
+         </div>
+
+         <div>
+           <h2 class="heading-md text-lg text-[var(--color-text)] mb-2">Data Sharing</h2>
+           <p class="body-text text-sm">We do <strong>not</strong> sell, rent, or share any visitor data with third parties. We run no ads and use no external ad networks.</p>
+         </div>
+
+         <div>
+           <h2 class="heading-md text-lg text-[var(--color-text)] mb-2">Email</h2>
+           <p class="body-text text-sm">If you contact us at <a href="mailto:hello@china-trips.com" class="text-[var(--color-accent)] hover:underline">hello@china-trips.com</a>, we will only use your email address to respond to your inquiry. We do not add you to any mailing list.</p>
+         </div>
+
+         <div>
+           <h2 class="heading-md text-lg text-[var(--color-text)] mb-2">Hosting</h2>
+           <p class="body-text text-sm">China Trips is hosted on a static hosting provider. Standard server logs (IP address, timestamp, requested URL) may be collected by our hosting provider for operational purposes. These logs are not accessible to us for visitor tracking.</p>
+         </div>
+
+         <div>
+           <h2 class="heading-md text-lg text-[var(--color-text)] mb-2">Contact</h2>
+           <p class="body-text text-sm">Questions about this policy? Email us at <a href="mailto:hello@china-trips.com" class="text-[var(--color-accent)] hover:underline">hello@china-trips.com</a>.</p>
+         </div>
+       </div>
+     </div>
+   </main>
+
+   <footer class="border-t border-[var(--color-border)] py-8">
+     <div class="container text-center">
+       <p class="text-xs text-[var(--color-text-muted)]">&copy; 2026 China Trips · <a href="/about" class="hover:text-[var(--color-text)] transition-colors">About</a> · <a href="/privacy" class="hover:text-[var(--color-text)] transition-colors">Privacy</a> · <a href="/" class="hover:text-[var(--color-text)] transition-colors">Home</a></p>
+     </div>
+   </footer>
+ </BaseLayout>
