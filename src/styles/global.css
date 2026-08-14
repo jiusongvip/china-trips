@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "@fontsource/geist-sans";
 @import "@fontsource/geist-mono";
+@import "@fontsource/playfair-display/600.css";
+@import "@fontsource/playfair-display/700.css";
 
 :root {
   --color-accent: #C2413F;
@@ -33,19 +35,23 @@ body {
   min-height: 100dvh;
 }
 
-/* Typography utility */
+/* Typography utility — serif display headings (editorial feel) */
+.font-display {
+  font-family: "Playfair Display", "Geist Sans", serif;
+}
+
 .heading-xl {
-  font-family: "Geist Sans", sans-serif;
+  font-family: "Playfair Display", "Geist Sans", serif;
   font-weight: 600;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.01em;
   line-height: 1.05;
 }
 
 .heading-lg {
-  font-family: "Geist Sans", sans-serif;
+  font-family: "Playfair Display", "Geist Sans", serif;
   font-weight: 600;
-  letter-spacing: -0.025em;
-  line-height: 1.1;
+  letter-spacing: -0.005em;
+  line-height: 1.08;
 }
 
 .heading-md {
@@ -218,6 +224,64 @@ body {
   background: radial-gradient(ellipse 80% 80% at 50% -20%, rgba(87, 83, 78, 0.04), transparent 70%);
 }
 
+/* Hero staggered entrance (ReelTrip-style editorial) */
+@media (prefers-reduced-motion: reduce) {
+  .hero-fade {
+    opacity: 1;
+    animation: none;
+  }
+  .hero-scroll-dot {
+    animation: none;
+  }
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-fade {
+  opacity: 0;
+  animation: heroFadeUp 0.7s ease-out forwards;
+}
+.hero-delay-1 { animation-delay: 0.2s; }
+.hero-delay-2 { animation-delay: 0.45s; }
+.hero-delay-3 { animation-delay: 0.7s; }
+.hero-delay-4 { animation-delay: 0.95s; }
+.hero-delay-5 { animation-delay: 1.2s; }
+
+/* Scroll hint — rounded capsule with bouncing dot */
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 26px;
+  height: 42px;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-radius: 9999px;
+  z-index: 30;
+}
+.hero-scroll-dot {
+  width: 4px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 9999px;
+  margin: 6px auto 0;
+  animation: scrollDot 1.6s ease-in-out infinite;
+}
+@keyframes scrollDot {
+  0% { opacity: 1; transform: translateY(0); }
+  70% { opacity: 0; transform: translateY(14px); }
+  100% { opacity: 0; transform: translateY(14px); }
+}
+
 /* Scroll reveal animation */
 @keyframes fadeUp {
   from {
@@ -288,12 +352,12 @@ body {
 }
 
 .stat-number {
-  font-family: "Geist Sans", sans-serif;
+  font-family: "Playfair Display", "Geist Sans", serif;
   font-size: 1.75rem;
   font-weight: 700;
   color: var(--color-accent);
   line-height: 1;
-  letter-spacing: -.02em;
+  letter-spacing: -.01em;
 }
 
 .timeline-line {
@@ -406,10 +470,10 @@ details.card summary::marker { display: none; }
 .img-zoom:hover img { transform: scale(1.04); }
 
 .key-number {
-  font-family: "Geist Sans", sans-serif;
+  font-family: "Playfair Display", "Geist Sans", serif;
   font-size: 3rem;
   font-weight: 700;
-  letter-spacing: -.03em;
+  letter-spacing: -.01em;
   line-height: 1;
   color: var(--color-accent);
 }
@@ -419,7 +483,7 @@ section[id] {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal, .reveal.in-view, .stagger-children > *, .stagger-children.in-view > * {
+  .reveal, .reveal.in-view, .stagger-children > *, .stagger-children.in-view > *, .hero-fade {
     opacity: 1;
     transform: none;
     animation: none;

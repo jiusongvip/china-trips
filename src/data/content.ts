@@ -490,7 +490,7 @@ export const faqs: FAQItem[] = [
   { question: "What is the best China itinerary for first-time visitors?", answer: "The classic Golden Triangle — Beijing (Great Wall, Forbidden City), Xi'an (Terracotta Warriors), Shanghai (modern skyline, Disney) — is perfect for first-timers. It offers history, culture, and modern China in one trip." },
   { question: "Is China safe for tourists?", answer: "China is one of the safest countries for travelers. Violent crime against tourists is extremely rare. Major cities are well-lit at night with heavy police presence. Common precautions like watching your belongings in crowded areas are sufficient." },
   { question: "How much does a trip to China cost?", answer: "Budget travelers can manage $50–100/day (hostels, local food, public transport). Mid-range travelers spend $100–200/day (3-4 star hotels, nice restaurants, Didi). Luxury travel runs $250+/day (5-star hotels, private guides, fine dining)." },
-  { question: "Do I need a visa to visit China?", answer: "Most nationalities require a tourist visa (L visa) before arrival. However, China has expanded its visa-free transit policy — travelers from 54 countries can stay up to 144 hours in certain cities without a visa. Check your specific country's requirements." },
+  { question: "Do I need a visa to visit China?", answer: "Most nationalities require a tourist visa (L visa) before arrival. However, China has greatly expanded visa-free access — travelers from 55 countries can stay up to 240 hours (10 days) when transiting, and citizens of 40+ countries can enter visa-free for up to 30 days. Check the official China travel portal for your country's requirements." },
   { question: "Can I use Alipay or WeChat Pay as a foreigner?", answer: "Yes! Both Alipay and WeChat Pay now support foreign credit cards. Download the app, verify your passport, and link your Visa/Mastercard before your trip. Cash is rarely used in China — mobile payment is essential." },
   { question: "Can I use credit cards in China?", answer: "International credit cards work at major hotels, upscale restaurants, and large shopping malls. However, many smaller shops, street vendors, and local restaurants only accept Alipay or WeChat Pay. Set up at least one mobile payment app before traveling." },
   { question: "Is China easy to travel around?", answer: "China has the world's largest high-speed rail network, connecting all major cities efficiently. Trains run on time, stations are well-organized, and English signage is common in major hubs. Domestic flights connect farther destinations. Traveling between cities is easier than most first-timers expect." },
@@ -518,13 +518,13 @@ export const routes: Route[] = [
 ];
 
 // ============ NEW: Visa Data ============
-export const visa144hCities = ["Beijing","Shanghai","Guangzhou","Shenzhen","Chengdu","Xi'an","Chongqing","Kunming","Xiamen","Qingdao","Wuhan","Hangzhou","Nanjing","Tianjin","Dalian","Shenyang","Guilin","Changsha","Harbin","Ningbo","Zhengzhou"];
+export const visa240hCities = ["Beijing","Shanghai","Guangzhou","Shenzhen","Chengdu","Xi'an","Chongqing","Kunming","Xiamen","Qingdao","Wuhan","Hangzhou","Nanjing","Tianjin","Dalian","Shenyang","Guilin","Changsha","Harbin","Ningbo","Zhengzhou"];
 export interface VisaPolicy { country: string; policy: string; detail: string; }
 export const visaPolicyHighlights: VisaPolicy[] = [
   { country: "USA, UK, Canada, Australia, EU", policy: "L Visa required", detail: "Apply at Chinese embassy/consulate before travel. Single-entry 30-day tourist visa ~$140. Processing: 4–10 business days." },
-  { country: "54 countries (transit)", policy: "144-hour visa-free", detail: "Must arrive/depart via eligible airports in select cities. Must have confirmed onward ticket to a third country/region. Cannot leave designated city/region." },
-  { country: "Singapore, Japan, Brunei", policy: "15-day visa-free", detail: "Ordinary passport holders can enter China visa-free for up to 15 days for tourism or business." },
-  { country: "France, Germany, Italy + others", policy: "15-day visa-free", detail: "Select EU countries now have 15-day visa-free access (policy expanding, check latest updates)." },
+  { country: "55 countries (transit)", policy: "240-hour visa-free (10 days)", detail: "Must hold a confirmed onward ticket to a third country/region. Travel freely across 24 provinces via 60+ designated ports." },
+  { country: "Singapore, Japan, Korea + more", policy: "30-day visa-free", detail: "Ordinary passport holders from 40+ countries (Asia, Europe, Oceania, Americas) can enter China visa-free for up to 30 days for tourism or business." },
+  { country: "UK, Canada (2026 trial)", policy: "30-day visa-free", detail: "British and Canadian passport holders enjoy visa-free entry for up to 30 days — trial period running through December 31, 2026." },
 ];
 
 // ============ NEW: Weather Data ============
