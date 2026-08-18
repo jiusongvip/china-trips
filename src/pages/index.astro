@@ -124,7 +124,7 @@ const itemListSchema = {
           <p class="body-text text-lg">Not sure where to start? Here are three proven routes. Click any card to auto-fill the planner below.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 stagger-children reveal">
-          <div class="card p-5 cursor-pointer group hover:border-[var(--color-accent)] transition-all" onclick="document.getElementById('planner-days').value='10';document.getElementById('planner-who').value='couple';document.getElementById('planner-submit').click();window.location.hash='planner'">
+          <div class="card p-5 cursor-pointer group hover:border-[var(--color-accent)] transition-all" onclick="document.getElementById('planner-days').value='10';document.getElementById('planner-who').value='couple';document.getElementById('planner-submit').click();document.getElementById('planner').scrollIntoView({behavior:'smooth'})">
             <div class="flex items-center gap-2 mb-3">
               <span class="tag tag-success">Most Popular</span>
               <span class="text-xs text-[var(--color-text-muted)]">10 days</span>
@@ -141,7 +141,7 @@ const itemListSchema = {
               <span class="text-xs text-[var(--color-text-muted)] group-hover:text-[var(--color-accent)]">Use this route →</span>
             </div>
           </div>
-          <div class="card p-5 cursor-pointer group hover:border-[var(--color-accent)] transition-all" onclick="document.getElementById('planner-days').value='14';document.getElementById('planner-who').value='friends';document.getElementById('planner-submit').click();window.location.hash='planner'">
+          <div class="card p-5 cursor-pointer group hover:border-[var(--color-accent)] transition-all" onclick="document.getElementById('planner-days').value='14';document.getElementById('planner-who').value='friends';document.getElementById('planner-submit').click();document.getElementById('planner').scrollIntoView({behavior:'smooth'})">
             <div class="flex items-center gap-2 mb-3">
               <span class="tag">Nature + Culture</span>
               <span class="text-xs text-[var(--color-text-muted)]">14 days</span>
@@ -160,7 +160,7 @@ const itemListSchema = {
               <span class="text-xs text-[var(--color-text-muted)] group-hover:text-[var(--color-accent)]">Use this route →</span>
             </div>
           </div>
-          <div class="card p-5 cursor-pointer group hover:border-[var(--color-accent)] transition-all" onclick="document.getElementById('planner-days').value='21';document.getElementById('planner-who').value='couple';document.getElementById('planner-submit').click();window.location.hash='planner'">
+          <div class="card p-5 cursor-pointer group hover:border-[var(--color-accent)] transition-all" onclick="document.getElementById('planner-days').value='21';document.getElementById('planner-who').value='couple';document.getElementById('planner-submit').click();document.getElementById('planner').scrollIntoView({behavior:'smooth'})">
             <div class="flex items-center gap-2 mb-3">
               <span class="tag">Grand Tour</span>
               <span class="text-xs text-[var(--color-text-muted)]">21 days</span>
