@@ -5,8 +5,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://china-trips.com",
-  trailingSlash: "never",
+  site: "https://www.chinatripzone.com",
+  trailingSlash: "always",
   integrations: [sitemap({
     filter: (page) => !page.includes("/404"),
   })],
