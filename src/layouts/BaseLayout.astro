@@ -7,8 +7,9 @@ export interface Props {
   ogImage?: string;
   schema?: object;
   preloadImage?: string;
+  noCanonical?: boolean;
 }
-const { title, description, ogImage, schema, preloadImage } = Astro.props;
+const { title, description, ogImage, schema, preloadImage, noCanonical } = Astro.props;
 const rawCanonical = new URL(Astro.url.pathname, Astro.site).href;
 const canonicalURL = rawCanonical.length > 1 && rawCanonical.endsWith("/") ? rawCanonical.slice(0, -1) : rawCanonical;
 const ogImageUrl = ogImage ? new URL(ogImage, Astro.site).href : undefined;
@@ -46,12 +47,12 @@ const orgSchema = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalURL} />
+    {!noCanonical && <link rel="canonical" href={canonicalURL} />}
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalURL.href} />
+    {!noCanonical && <meta property="og:url" content={canonicalURL} />}
     <meta property="og:type" content="website" />
     {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
     {ogImageUrl && <meta property="og:image:width" content="1200" />}
