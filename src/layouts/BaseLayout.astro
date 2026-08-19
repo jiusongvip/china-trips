@@ -11,7 +11,10 @@ export interface Props {
 }
 const { title, description, ogImage, schema, preloadImage, noCanonical } = Astro.props;
 const rawCanonical = new URL(Astro.url.pathname, Astro.site).href;
-const canonicalURL = rawCanonical.length > 1 && rawCanonical.endsWith("/") ? rawCanonical.slice(0, -1) : rawCanonical;
+// URL 规范：首页 canonical 不带尾斜杠，内页带尾斜杠（trailingSlash: "always"）
+// 注意：String(Astro.site) 经 URL API 规范化会强制加回尾斜杠，需手动去除
+const canonicalURL =
+  Astro.url.pathname === "/" ? String(Astro.site).replace(/\/$/, "") : rawCanonical;
 const ogImageUrl = ogImage ? new URL(ogImage, Astro.site).href : undefined;
 
 const webSiteSchema = {

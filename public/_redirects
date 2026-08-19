@@ -1,0 +1,2 @@
+# 旧路径兼容：sitemap.xml → sitemap-index.xml（仅此一条，勿加尾斜杠规则，会与 Pages 目录 308 冲突）
+/sitemap.xml /sitemap-index.xml 301
