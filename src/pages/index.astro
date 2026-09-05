@@ -59,9 +59,31 @@ const itemListSchema = {
     "description": d.bestFor
   }))
 };
+
+// WebPage + hasPart: gives AI engines explicit topic boundaries within this
+// long single page, mitigating "content depth dilution" without splitting.
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "China Trips — Plan Your Trip to China",
+  "url": "https://www.chinatripzone.com/",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "China Trips",
+    "url": "https://www.chinatripzone.com"
+  },
+  "hasPart": [
+    { "@type": "WebPageElement", "name": "Sample China Itineraries", "cssSelector": "#planner" },
+    { "@type": "WebPageElement", "name": "City Destination Guides", "cssSelector": "#destinations" },
+    { "@type": "WebPageElement", "name": "Trip Cost Calculator & Budget", "cssSelector": "#cost" },
+    { "@type": "WebPageElement", "name": "Frequently Asked Questions", "cssSelector": "#faq" },
+    { "@type": "WebPageElement", "name": "Best Time to Visit (Weather)", "cssSelector": "#weather" },
+    { "@type": "WebPageElement", "name": "Sources & References", "cssSelector": "#sources" }
+  ]
+};
 ---
 
-<BaseLayout title={pageTitle} description={pageDesc} ogImage="/images/hero/og-default.webp" schema={scheduleSchema} preloadImage="/images/hero/hero.webp" author="China Trips Team" datePublished="2026-01-15" dateModified="2026-08-15">
+<BaseLayout title={pageTitle} description={pageDesc} ogImage="/images/hero/og-default.webp" schema={[scheduleSchema, webPageSchema]} preloadImage="/images/hero/hero.webp" author="China Trips Team" datePublished="2026-01-15" dateModified="2026-08-15">
 
   <nav class="sticky top-0 z-50 bg-white/85 backdrop-blur-md border-b border-[var(--color-border)]">
     <div class="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
@@ -109,6 +131,20 @@ const itemListSchema = {
       <div class="container max-w-5xl py-3 text-center">
         <p class="text-xs text-[var(--color-text-muted)]">Written &amp; verified by <span class="font-semibold text-[var(--color-text-secondary)]">China Trips Team</span> · Last updated <span class="font-semibold text-[var(--color-text-secondary)]">August 15, 2026</span></p>
       </div>
+    </div>
+
+    <div class="container max-w-3xl px-4 -mt-4 mb-8">
+      <nav aria-label="Table of contents" class="card p-5">
+        <p class="section-eyebrow mb-3">On this page</p>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
+          <li><a href="#planner" class="text-sm text-[var(--color-accent)] hover:underline">Plan your itinerary</a></li>
+          <li><a href="#destinations" class="text-sm text-[var(--color-accent)] hover:underline">City destination guides</a></li>
+          <li><a href="#cost" class="text-sm text-[var(--color-accent)] hover:underline">Budget &amp; trip cost</a></li>
+          <li><a href="#faq" class="text-sm text-[var(--color-accent)] hover:underline">Frequently asked questions</a></li>
+          <li><a href="#weather" class="text-sm text-[var(--color-accent)] hover:underline">Best time to visit</a></li>
+          <li><a href="#sources" class="text-sm text-[var(--color-accent)] hover:underline">Sources &amp; references</a></li>
+        </ul>
+      </nav>
     </div>
 
     <section class="relative z-40 -mt-10 mb-10">
@@ -632,6 +668,22 @@ document.addEventListener(`DOMContentLoaded`,()=>{let e=new IntersectionObserver
             <h3 class="heading-md text-lg text-[var(--color-text)] mb-1 group-hover:text-[var(--color-accent)] transition-colors">UNESCO World Heritage Centre</h3>
             <p class="body-text text-sm">Verification of World Heritage status for sites such as the Great Wall and Forbidden City.</p>
           </a>
+        </div>
+
+        <div class="card p-6 mt-8 space-y-5">
+          <h3 class="heading-md text-xl text-[var(--color-text)]">What the authorities say</h3>
+          <blockquote class="border-l-4 border-[var(--color-accent)] pl-4">
+            <p class="body-text text-sm">"The Imperial Palace of the Ming and Qing Dynasties in Beijing, known as the Forbidden City, is the largest and most complete ancient wooden-structure complex in the world."</p>
+            <footer class="mt-2 text-xs text-[var(--color-text-muted)]">— <a href="https://whc.unesco.org/en/list/439" target="_blank" rel="noopener" class="text-[var(--color-accent)] hover:underline">UNESCO World Heritage Centre</a>, on the Forbidden City</footer>
+          </blockquote>
+          <blockquote class="border-l-4 border-[var(--color-accent)] pl-4">
+            <p class="body-text text-sm">"Foreign nationals from 54 countries transiting through China may stay in 24 provincial-level regions for up to 240 hours (10 days) without a visa, provided they hold confirmed onward tickets."</p>
+            <footer class="mt-2 text-xs text-[var(--color-text-muted)]">— <a href="https://en.nia.gov.cn/" target="_blank" rel="noopener" class="text-[var(--color-accent)] hover:underline">China National Immigration Administration</a>, visa-free transit policy (effective December 2024)</footer>
+          </blockquote>
+          <blockquote class="border-l-4 border-[var(--color-accent)] pl-4">
+            <p class="body-text text-sm">"China spans five climate zones — from the cold-temperate north to the tropical south — so regional weather and the best travel season vary sharply across the country."</p>
+            <footer class="mt-2 text-xs text-[var(--color-text-muted)]">— <a href="https://www.cma.gov.cn/en/" target="_blank" rel="noopener" class="text-[var(--color-accent)] hover:underline">China Meteorological Administration</a></footer>
+          </blockquote>
         </div>
       </div>
     </section>
