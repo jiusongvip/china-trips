@@ -1,0 +1,56 @@
+---
+  import BaseLayout from "../layouts/BaseLayout.astro";
+
+  const pageTitle = "Terms of Use — China Trips Travel Guide";
+  const pageDesc = "Terms of use for China Trips. Our independent travel content is provided for general guidance only and is not a substitute for official advice. Read our full disclaimer and limitations of liability.";
+  ---
+
+  <BaseLayout title={pageTitle} description={pageDesc} ogImage="/images/hero/og-default.webp">
+    <nav class="sticky top-0 z-50 bg-white/85 backdrop-blur-md border-b border-[var(--color-border)]">
+      <div class="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
+        <a href="/" class="text-lg font-semibold tracking-tight text-[var(--color-text)] no-underline">China Trips</a>
+        <a href="/" class="text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors no-underline">← Back to Guide</a>
+      </div>
+    </nav>
+
+    <main class="section">
+      <div class="container max-w-3xl">
+        <span class="section-eyebrow">Legal</span>
+        <h1 class="heading-lg text-4xl md:text-5xl text-[var(--color-text)] mb-6">Terms of Use</h1>
+        <p class="body-text text-sm mb-6">Last updated: August 19, 2026</p>
+
+        <div class="card p-6 space-y-5">
+          <div>
+            <h2 class="heading-md text-lg text-[var(--color-text)] mb-2">Use of Content</h2>
+            <p class="body-text text-sm">The content on China Trips is provided for general informational purposes to help you plan a trip to China. You are welcome to read and share it freely for personal use. Republishing large portions of our guides without permission is not permitted.</p>
+          </div>
+
+          <div>
+            <h2 class="heading-md text-lg text-[var(--color-text)] mb-2">No Official Advice</h2>
+            <p class="body-text text-sm">Visa rules, entry policies, prices, and schedules change. Always confirm critical details — especially visa eligibility and border requirements — with the <a href="https://en.nia.gov.cn/" target="_blank" rel="noopener" class="text-[var(--color-accent)] hover:underline">China National Immigration Administration</a> and official venues before you travel. We are not a government body and our content is not legal or official advice.</p>
+          </div>
+
+          <div>
+            <h2 class="heading-md text-lg text-[var(--color-text)] mb-2">Bookings & External Links</h2>
+            <p class="body-text text-sm">Where we link to third-party booking platforms (such as Trip.com) or other websites, those services are governed by their own terms and privacy policies. We are not responsible for the content, availability, or practices of external sites, and any booking is between you and that provider.</p>
+          </div>
+
+          <div>
+            <h2 class="heading-md text-lg text-[var(--color-text)] mb-2">Limitation of Liability</h2>
+            <p class="body-text text-sm">Travel involves inherent risks. China Trips is not liable for any loss, injury, delay, or expense arising from reliance on the information provided here. You are responsible for your own travel decisions, safety, and compliance with local laws.</p>
+          </div>
+
+          <div>
+            <h2 class="heading-md text-lg text-[var(--color-text)] mb-2">Contact</h2>
+            <p class="body-text text-sm">Questions about these terms? Email us at <a href="mailto:hello@chinatripzone.com" class="text-[var(--color-accent)] hover:underline">hello@chinatripzone.com</a>.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="border-t border-[var(--color-border)] py-8">
+      <div class="container text-center">
+        <p class="text-xs text-[var(--color-text-muted)]">&copy; 2026 China Trips · <a href="/about/" class="hover:text-[var(--color-text)] transition-colors">About</a> · <a href="/privacy/" class="hover:text-[var(--color-text)] transition-colors">Privacy</a> · <a href="/terms/" class="hover:text-[var(--color-text)] transition-colors">Terms</a> · <a href="/" class="hover:text-[var(--color-text)] transition-colors">Home</a></p>
+      </div>
+    </footer>
+  </BaseLayout>

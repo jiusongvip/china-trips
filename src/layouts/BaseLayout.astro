@@ -8,14 +8,25 @@ export interface Props {
   schema?: object;
   preloadImage?: string;
   noCanonical?: boolean;
+  author?: string;
+  datePublished?: string;
+  dateModified?: string;
 }
-const { title, description, ogImage, schema, preloadImage, noCanonical } = Astro.props;
+const { title, description, ogImage, schema, preloadImage, noCanonical, author, datePublished, dateModified } = Astro.props;
 const rawCanonical = new URL(Astro.url.pathname, Astro.site).href;
 // URL 规范：首页 canonical 不带尾斜杠，内页带尾斜杠（trailingSlash: "always"）
 // 注意：String(Astro.site) 经 URL API 规范化会强制加回尾斜杠，需手动去除
 const canonicalURL =
   Astro.url.pathname === "/" ? String(Astro.site).replace(/\/$/, "") : rawCanonical;
 const ogImageUrl = ogImage ? new URL(ogImage, Astro.site).href : undefined;
+
+const SITE_NAME = "China Trips";
+
+function humanDate(iso: string): string {
+  const d = new Date(iso + "T00:00:00Z");
+  if (isNaN(d.getTime())) return iso;
+  return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
+}
 
 const webSiteSchema = {
   "@context": "https://schema.org",
@@ -39,21 +50,46 @@ const orgSchema = {
   "name": "China Trips",
   "url": "https://www.chinatripzone.com",
   "logo": "https://www.chinatripzone.com/favicon.svg",
-  "description": "Independent travel guide for China — detailed itineraries, real budgets, honest city guides, and practical advice."
+  "description": "Independent travel guide for China — detailed itineraries, real budgets, honest city guides, and practical advice.",
+  "email": "hello@chinatripzone.com",
+  "sameAs": [
+    "https://github.com/jiusongvip/china-trips"
+  ]
 };
+
+const showArticle = Boolean(author && dateModified);
+const articleSchema = showArticle ? {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "url": canonicalURL,
+  "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalURL },
+  "author": { "@type": "Organization", "name": author, "url": "https://www.chinatripzone.com/about" },
+  "publisher": { "@type": "Organization", "name": "China Trips", "url": "https://www.chinatripzone.com" },
+  "datePublished": datePublished || "2026-01-01",
+  "dateModified": dateModified,
+  "image": ogImageUrl ? { "@type": "ImageObject", "url": ogImageUrl } : undefined
+} : null;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-EVRPWGB219"></script>
+    <!-- Google tag (gtag.js) — deferred off the critical path to protect mobile LCP -->
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-EVRPWGB219');
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVRPWGB219';
+          document.head.appendChild(s);
+        }, 1500);
+      });
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -66,7 +102,11 @@ const orgSchema = {
     <meta property="og:description" content={description} />
     {!noCanonical && <meta property="og:url" content={canonicalURL} />}
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_NAME} />
     {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+    {ogImageUrl && <meta property="og:image:width" content="1200" />}
+    {ogImageUrl && <meta property="og:image:height" content="630" />}
+    {ogImageUrl && <meta property="og:image:alt" content={title} />}
     {ogImageUrl && <meta property="og:image:width" content="1200" />}
     {ogImageUrl && <meta property="og:image:height" content="630" />}
 
@@ -84,6 +124,9 @@ const orgSchema = {
     <!-- WebSite + Organization Schema -->
     <script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)}></script>
     <script type="application/ld+json" set:html={JSON.stringify(orgSchema)}></script>
+    {articleSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+    )}
     {schema && (
       <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
     )}
