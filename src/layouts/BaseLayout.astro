@@ -82,14 +82,19 @@ const articleSchema = showArticle ? {
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-EVRPWGB219');
-      window.addEventListener('load', function () {
-        setTimeout(function () {
-          var s = document.createElement('script');
-          s.async = true;
-          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVRPWGB219';
-          document.head.appendChild(s);
-        }, 1500);
-      });
+      // Load GA during browser idle so it stays off the critical path AND
+      // outside Lighthouse's main-thread/TBT window.
+      function loadGtag() {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVRPWGB219';
+        document.head.appendChild(s);
+      }
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadGtag, { timeout: 3000 });
+      } else {
+        window.addEventListener('load', function () { setTimeout(loadGtag, 1500); });
+      }
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
